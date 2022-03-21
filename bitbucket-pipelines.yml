@@ -7,10 +7,15 @@ pipelines:
           - mysql
         name: 'Build and Test'
         script:
-          - bash ./devops/build-server.sh
           - bash ./devops/build-project.sh
           - bash ./devops/run-tests.sh
-
+    - step:
+        name: 'Deployment to Production'
+        deployment: production
+        script:
+          - bash ./devops/build-server.sh
+          - bash ./devops/build-for-production.sh
+          - bash ./devops/deploy-production.sh
 definitions:
   services:
     mysql:

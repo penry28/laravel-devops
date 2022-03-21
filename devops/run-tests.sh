@@ -1,5 +1,5 @@
 #!/bin/bash
 
-php artisan server & sleep 5
+php artisan serve & sleep 5
 
 ./vendor/bin/phpunit
