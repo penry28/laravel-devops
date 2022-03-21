@@ -29,10 +29,11 @@ tar \
   -zcf $BUNDLE -T bundle.conf > /dev/null 2>&1
 
 sudo aws s3 cp $BUNDLE $S3_BUCKET_ENDPOINT > /dev/null 2>&1
-echo "[-] Your CodeDeploy S3 endpoint will be: $S3_BUCKET_ENDPOINT$BUNDLE"
+echo "[-] Your CodeDeploy S3 endpoint will be: $S3_BUCKET_ENDPOINT$BUNDLE";
+echo aws --version;
 
 # https://docs.aws.amazon.com/cli/latest/reference/deploy/create-deployment.html
-sudo aws deploy create-deployment \
+aws deploy create-deployment \
   --application-name $APPLICATION_NAME \
   --deployment-config-name $DEPLOYMENT_CONFIG_NAME \
   --deployment-group-name $DEPLOYMENT_GROUP_NAME \
