@@ -4,10 +4,19 @@ pipelines:
   default:
     - parallel:
       - step:
+          services:
+            - mysql
           name: 'Build and Test'
           script:
             - bash ./devops/build-server.sh
-      - step:
-          name: 'Lint'
-          script:
-            - echo "Your linting goes here..."
+            - bash ./devops/build-project.sh
+
+definitions:
+  services:
+    mysql:
+      image: mysql:8.0
+      environment:
+        MYSQL_DATABASE: 'homestead'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'homestead'
+        MYSQL_PASSWORD: 'secret'
