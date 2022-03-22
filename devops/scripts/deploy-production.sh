@@ -37,5 +37,5 @@ aws deploy create-deployment \
   --deployment-config-name $DEPLOYMENT_CONFIG_NAME \
   --deployment-group-name $DEPLOYMENT_GROUP_NAME \
   --file-exists-behavior OVERWRITE \
-  --s3-location bucket="s3://$S3_BUCKET/bundles",bundleType=tgz,key=bundles/$BUNDLE
+  --s3-location bucket="$S3_BUCKET",bundleType=tgz,key=bundles/$BUNDLE
 
