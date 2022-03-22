@@ -14,7 +14,7 @@
 
 HASH=`git rev-parse --short HEAD`
 BUNDLE=$HASH.tar.gz
-S3_BUCKET_ENDPOINT="s3://$S3_BUCKET/bundles/"
+S3_BUCKET_ENDPOINT="s3://$S3_BUCKET/bundles"
 
 rm -rf bundle-*.tar.gz
 
