@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Project directory on the server fro your project
-export WEB_DIR='/var/www/aws-codedeploy-bitbucket-laravel'
+export WEB_DIR='/var/www/laravelcodedeploy'
 # Your server user. Used to fix permission issue & install our project dependcies
 export WEB_USER=ubuntu
 
