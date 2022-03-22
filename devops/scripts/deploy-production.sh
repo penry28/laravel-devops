@@ -14,7 +14,7 @@
 
 HASH=`git rev-parse --short HEAD`
 BUNDLE=$HASH.tar.gz
-S3_BUCKET_ENDPOINT="s3://$S3_BUCKET/bundles"
+S3_BUCKET_ENDPOINT="s3://$S3_BUCKET/bundles/"
 
 rm -rf bundle-*.tar.gz
 
@@ -37,4 +37,4 @@ aws deploy create-deployment \
   --deployment-config-name $DEPLOYMENT_CONFIG_NAME \
   --deployment-group-name $DEPLOYMENT_GROUP_NAME \
   --file-exists-behavior OVERWRITE \
-  --s3-location bucket=$S3_BUCKET_ENDPOINT,bundleType=tgz,key=bundles/$BUNDLE
+  --s3-location bucket=$S3_BUCKET_ENDPOINT,bundleType=tgz,key=bundles$BUNDLE
