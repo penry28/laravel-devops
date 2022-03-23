@@ -17,6 +17,8 @@ sudo chmod g+w -R storage
 # install composer dependcies
 sudo -u $WEB_USER composer install --no-dev --no-progress --prefer-dist
 
+./devops/scripts/generate-env.sh
+
 # generate app key & run migrations
 sudo -u $WEB_USER php artisan key:generate
 sudo -u $WEB_USER php artisan migrate --force --no-interaction
